@@ -30,6 +30,7 @@ The current notebook:
 | 2026-06-16 | Dylan Cease | BOS | Away | 6.5 | 9.19 | 2.69 | Bet Over | Playable |
 | 2026-06-16 | Jesús Luzardo | MIA | Home | 6.5 | 5.55 | -0.95 | Pass | Pass - Small Edge |
 
+![Example terminal output](assets/example-output.png)
 
 ## How to Run the Daily Board
 
