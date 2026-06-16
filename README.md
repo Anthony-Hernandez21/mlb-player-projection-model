@@ -89,14 +89,14 @@ src/
 
   ## Current Limitations
 
-Sportsbook lines are entered manually
-The model is a simple baseline, not a validated betting system
-No opponent strikeout-rate adjustment yet
-No backtesting yet
+Sportsbook lines are entered manually.
+The model is a simple baseline, not a validated betting system.
+No opponent strikeout-rate adjustment yet.
+No backtesting yet.
 
 ## Next Steps
 
-Backtest past projections
-Add opponent strikeout tendencies
-Improve player lookup for accented names
-Add probable pitchers automatically
+Backtest past projections.
+Add opponent strikeout tendencies.
+Improve player lookup for accented names.
+Add probable pitchers automatically.
