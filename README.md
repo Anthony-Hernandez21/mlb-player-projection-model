@@ -30,3 +30,22 @@ The current notebook:
 3. Run the notebook cells
 4. Review the daily pitcher board
 5. Save the output CSV
+
+## How to Run the Daily Board
+
+Update the slate settings:
+
+`data/slate_config.csv`
+
+Example:
+
+```csv
+slate_date,season
+2026-06-16,2026
+
+
+Update the sportsbook lines:
+
+`data/slate_config.csv`
+
+Example:
