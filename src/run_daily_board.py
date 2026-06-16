@@ -50,5 +50,17 @@ daily_pitcher_board = daily_pitcher_board[columns]
 output_path = f'data/daily_pitcher_board_{slate_date}.csv'
 daily_pitcher_board.to_csv(output_path, index=False)
 
-print(daily_pitcher_board)
-print(f'Saved board to {output_path}')
+display_columns = [
+    'slate_date',
+    'pitcher',
+    'opponent',
+    'home_away',
+    'sportsbook_line',
+    'projected_k',
+    'difference',
+    'final_action',
+    'status'
+]
+
+print(daily_pitcher_board[display_columns].to_string(index=False))
+print(f'Saved full board to {output_path}')
