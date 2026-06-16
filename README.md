@@ -2,7 +2,7 @@
 
 This project builds a basic MLB pitcher strikeout projection board.
 
-## Current Version
+## What It Does
 
 The current notebook:
 
@@ -23,14 +23,12 @@ The current notebook:
 - pybaseball
 - Jupyter Notebook
 
-## Current Workflow
+## Example Output
 
-1. Open the notebook in `notebooks/data_exploration.ipynb`
-2. Update the daily input section
-3. Run the notebook cells
-4. Review the daily pitcher board
-5. Save the output CSV
-
+| slate_date | pitcher | opponent | home_away | sportsbook_line | projected_k | difference | final_action | status |
+|---|---|---|---|---:|---:|---:|---|---|
+| 2026-06-16 | Dylan Cease | BOS | Away | 6.5 | 9.19 | 2.69 | Bet Over | Playable |
+| 2026-06-16 | Jesús Luzardo | MIA | Home | 6.5 | 5.55 | -0.95 | Pass | Pass - Small Edge |
 
 
 ## How to Run the Daily Board
@@ -58,8 +56,8 @@ Example:
 
 ```csv
 pitcher,opponent,home_away,line
-Tarik Skubal,CLE,Home,7.5
-Zack Wheeler,ATL,Away,6.5
+Dylan Cease,BOS,Away,6.5
+Jesús Luzardo,MIA,Home,6.5
 ```
 
 Run the daily board from Terminal:
@@ -74,3 +72,31 @@ The script saves the output to:
 ```text
 data/daily_pitcher_board_YYYY-MM-DD.csv
 ```
+
+## Project Structure
+
+data/
+  daily_lines.csv
+  slate_config.csv
+  daily_pitcher_board_YYYY-MM-DD.csv
+
+notebooks/
+  data_exploration.ipynb
+
+src/
+  projections.py
+  run_daily_board.py
+
+  ## Current Limitations
+
+Sportsbook lines are entered manually
+The model is a simple baseline, not a validated betting system
+No opponent strikeout-rate adjustment yet
+No backtesting yet
+
+## Next Steps
+
+Backtest past projections
+Add opponent strikeout tendencies
+Improve player lookup for accented names
+Add probable pitchers automatically
