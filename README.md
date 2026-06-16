@@ -74,6 +74,51 @@ The script saves the output to:
 data/daily_pitcher_board_YYYY-MM-DD.csv
 ```
 
+## Run This Project Locally
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Anthony-Hernandez21/mlb-player-projection-model.git
+cd mlb-player-projection-model
+```
+
+Create a virtual environment:
+
+```bash
+python3.12 -m venv venv312
+source venv312/bin/activate
+```
+
+Install dependencies:
+
+```bash
+pip install pandas numpy pybaseball jupyter
+```
+
+Update the slate config:
+
+```csv
+slate_date,season
+2026-06-16,2026
+```
+
+Update the daily lines file:
+
+```csv
+pitcher,opponent,home_away,line
+Dylan Cease,BOS,Away,6.5
+Jesús Luzardo,MIA,Home,6.5
+```
+
+Run the daily board:
+
+```bash
+python src/run_daily_board.py
+```
+
+The output CSV will be saved in the `data` folder.
+
 ## Project Structure
 
 data/
