@@ -8,8 +8,10 @@ regular_season_start_dates = {
     2026: '2026-03-25'
 }
 
-slate_date = '2025-07-12'
-season = 2025
+slate_config = pd.read_csv('data/slate_config.csv')
+
+slate_date = slate_config.loc[0, 'slate_date']
+season = int(slate_config.loc[0, 'season'])
 regular_season_start = regular_season_start_dates[season]
 
 daily_lines = pd.read_csv('data/daily_lines.csv').to_dict('records')
