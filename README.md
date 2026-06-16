@@ -31,9 +31,11 @@ The current notebook:
 4. Review the daily pitcher board
 5. Save the output CSV
 
+
+
 ## How to Run the Daily Board
 
-Update the slate settings:
+Update the slate settings file:
 
 `data/slate_config.csv`
 
@@ -42,10 +44,29 @@ Example:
 ```csv
 slate_date,season
 2026-06-16,2026
+```
 
+Update the sportsbook lines file:
 
-Update the sportsbook lines:
-
-`data/slate_config.csv`
+`data/daily_lines.csv`
 
 Example:
+
+```csv
+pitcher,opponent,home_away,line
+Tarik Skubal,CLE,Home,7.5
+Zack Wheeler,ATL,Away,6.5
+```
+
+Run the daily board from Terminal:
+
+```bash
+source venv312/bin/activate
+python src/run_daily_board.py
+```
+
+The script saves the output to:
+
+```text
+data/daily_pitcher_board_YYYY-MM-DD.csv
+```
