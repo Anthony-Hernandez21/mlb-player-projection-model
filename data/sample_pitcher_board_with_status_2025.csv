@@ -1,0 +1,4 @@
+pitcher,games_used,projected_k,sportsbook_line,difference,recommendation,sample_size,error_message,edge_strength,final_action,status
+Zack Wheeler,24,7.97,6.5,1.47,Over,Good Sample,,Medium Edge,Bet Over,Playable
+Tarik Skubal,32,8.85,7.5,1.35,Over,Good Sample,,Medium Edge,Bet Over,Playable
+Gerrit Cole,0,,6.5,,No Data,No Data,single positional indexer is out-of-bounds,No Data,Pass,No Data

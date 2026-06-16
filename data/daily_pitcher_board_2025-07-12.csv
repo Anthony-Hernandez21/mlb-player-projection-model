@@ -1,0 +1,4 @@
+pitcher,opponent,home_away,games_used,last_3_avg_k,last_5_avg_k,season_avg_k,season_avg_pitches,projected_k,sportsbook_line,difference,recommendation,sample_size,edge_strength,final_action,status,slate_date
+Zack Wheeler,ATL,Home,24,7.67,8.2,8.12,99.75,7.97,6.5,1.47,Over,Good Sample,Medium Edge,Bet Over,Playable,2025-07-12
+Tarik Skubal,CLE,Home,32,10.33,7.8,7.97,92.38,8.85,7.5,1.35,Over,Good Sample,Medium Edge,Bet Over,Playable,2025-07-12
+Gerrit Cole,BOS,Away,0,,,,,,6.5,,No Data,No Data,No Data,Pass,No Data,2025-07-12
