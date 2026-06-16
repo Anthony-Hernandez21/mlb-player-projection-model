@@ -12,11 +12,7 @@ slate_date = '2025-07-12'
 season = 2025
 regular_season_start = regular_season_start_dates[season]
 
-daily_lines = [
-    {'pitcher': 'Tarik Skubal', 'opponent': 'CLE', 'home_away': 'Home', 'line': 7.5},
-    {'pitcher': 'Gerrit Cole', 'opponent': 'BOS', 'home_away': 'Away', 'line': 6.5},
-    {'pitcher': 'Zack Wheeler', 'opponent': 'ATL', 'home_away': 'Home', 'line': 6.5}
-]
+daily_lines = pd.read_csv('data/daily_lines.csv').to_dict('records')
 
 daily_pitcher_board = build_pitcher_board(
     daily_lines,
