@@ -49,13 +49,14 @@ daily_pitcher_board = daily_pitcher_board[columns]
 
 output_path = f'data/daily_pitcher_board_{slate_date}.csv'
 daily_pitcher_board.to_csv(output_path, index=False)
-
 display_columns = [
     'slate_date',
     'pitcher',
     'opponent',
     'home_away',
     'sportsbook_line',
+    'last_3_avg_k',
+    'last_5_avg_k',
     'projected_k',
     'difference',
     'final_action',
