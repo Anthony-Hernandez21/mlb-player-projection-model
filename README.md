@@ -35,9 +35,13 @@ The current notebook:
 
 ## How to Run the Daily Board
 
+Launch Project from Terminal:
+
+`cd ~/mlb-player-projection-model`
+
 Update the slate settings file:
 
-`data/slate_config.csv`
+`nano data/slate_config.csv`
 
 Example:
 
@@ -48,7 +52,7 @@ slate_date,season
 
 Update the sportsbook lines file:
 
-`data/daily_lines.csv`
+`nano data/daily_lines.csv`
 
 Example:
 

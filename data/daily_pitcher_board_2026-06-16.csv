@@ -1,3 +1,4 @@
 slate_date,pitcher,opponent,home_away,sportsbook_line,projected_k,difference,final_action,status,recommendation,edge_strength,sample_size,games_used,last_3_avg_k,last_5_avg_k,season_avg_k,season_avg_pitches
-2026-06-16,Tarik Skubal,CLE,Home,7.5,6.0,-1.5,Pass,Pass - Small Sample,Under,Strong Edge,Small Sample,8,5.33,6.6,6.12,88.25
-2026-06-16,Zack Wheeler,ATL,Away,6.5,6.73,0.23,Pass,Pass - Small Edge,No Bet,No Bet,Good Sample,10,7.33,6.4,6.2,94.7
+2026-06-16,Dylan Cease,BOS,Away,6.5,9.19,2.69,Bet Over,Playable,Over,Strong Edge,Good Sample,12,9.33,9.4,8.5,97.75
+2026-06-16,Jesús Luzardo,MIA,Home,6.5,5.55,-0.95,Pass,Pass - Small Edge,Under,Small Edge,Good Sample,14,5.33,5.4,6.29,95.64
+2026-06-16,Payton Tolle,TOR,Home,5.5,5.36,-0.14,Pass,Pass - Small Sample,No Bet,No Bet,Small Sample,9,5.0,5.4,6.0,86.89
