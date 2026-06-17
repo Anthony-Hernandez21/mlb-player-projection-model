@@ -1,8 +1,4 @@
-slate_date,pitcher,opponent,home_away,sportsbook_line,projected_k,difference,final_action,status,recommendation,edge_strength,sample_size,games_used,last_3_avg_k,last_5_avg_k,season_avg_k,season_avg_pitches
-2026-06-16,Dylan Cease,BOS,Away,6.5,9.19,2.69,Bet Over,Playable,Over,Strong Edge,Good Sample,12,9.33,9.4,8.5,97.75
-2026-06-16,Kodai Senga,CIN,Away,5.5,3.69,-1.81,Pass,Pass - Small Sample,Under,Strong Edge,Small Sample,5,2.33,4.6,4.6,73.4
-2026-06-16,Jesús Luzardo,MIA,Home,6.5,5.55,-0.95,Pass,Pass - Small Edge,Under,Small Edge,Good Sample,14,5.33,5.4,6.29,95.64
-2026-06-16,Davis Martin,NYY,Away,5.5,5.11,-0.39,Pass,Pass - Small Edge,No Bet,No Bet,Good Sample,13,4.33,5.4,6.08,92.15
-2026-06-16,Brady Singer,NYM,Home,4.5,4.14,-0.36,Pass,Pass - Small Edge,No Bet,No Bet,Good Sample,13,4.33,4.2,3.62,84.46
-2026-06-16,Payton Tolle,TOR,Home,5.5,5.36,-0.14,Pass,Pass - Small Sample,No Bet,No Bet,Small Sample,9,5.0,5.4,6.0,86.89
-2026-06-16,Gerrit Cole,CWS,Home,5.5,,,Pass,Pass - Small Sample,No Bet,No Data,Small Sample,4,5.33,,4.5,79.25
+slate_date,pitcher,opponent,home_away,sportsbook_line,projected_k,opponent_k_per_game,opponent_k_factor,adjusted_projected_k,difference,final_action,status,recommendation,edge_strength,sample_size,games_used,last_3_avg_k,last_5_avg_k,season_avg_k,season_avg_pitches
+2026-06-16,Dylan Cease,BOS,Away,6.5,8.66,9.4,1.1,9.53,3.03,Bet Over,Playable,Over,Strong Edge,Good Sample,13,8.67,8.8,8.38,98.54
+2026-06-16,Michael King,STL,Away,4.5,3.15,7.9,0.93,2.92,-1.58,Bet Under,Playable,Under,Strong Edge,Good Sample,15,2.67,2.8,4.8,92.07
+2026-06-16,Jesus Luzardo,MIA,Home,6.5,6.31,8.7,1.02,6.46,-0.04,Pass,Pass - Small Edge,No Bet,No Bet,Good Sample,15,6.33,6.2,6.47,96.33

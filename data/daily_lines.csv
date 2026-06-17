@@ -1,8 +1,4 @@
-pitcher,opponent,home_away,line
-Jesús Luzardo,MIA,Home,6.5
-Dylan Cease,BOS,Away,6.5
-Payton Tolle,TOR,Home,5.5
-Gerrit Cole,CWS,Home,5.5
-Davis Martin,NYY,Away,5.5
-Kodai Senga,CIN,Away,5.5
-Brady Singer,NYM,Home,4.5
+pitcher,mlbam_id,opponent,home_away,line,opponent_k_per_game
+Jesus Luzardo,666200,MIA,Home,6.5,8.7
+Michael King,650633,STL,Away,4.5,7.9
+Dylan Cease,656302,BOS,Away,6.5,9.4

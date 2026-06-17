@@ -32,6 +32,9 @@ columns = [
     'home_away',
     'sportsbook_line',
     'projected_k',
+    'opponent_k_per_game',
+    'opponent_k_factor',
+    'adjusted_projected_k',
     'difference',
     'final_action',
     'status',
@@ -58,6 +61,7 @@ display_columns = [
     'last_3_avg_k',
     'last_5_avg_k',
     'projected_k',
+    'adjusted_projected_k',
     'difference',
     'final_action',
     'status'

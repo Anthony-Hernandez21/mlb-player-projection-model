@@ -66,9 +66,12 @@ def add_status(row):
 
 
 
-def project_pitcher_k(last_name, first_name, season, regular_season_start):
-    player_ids = playerid_lookup(last_name, first_name)
-    mlbam_id = int(player_ids.iloc[0]['key_mlbam'])
+def project_pitcher_k(last_name, first_name, season, regular_season_start, mlbam_id=None, display_name=None):
+    if mlbam_id is None or pd.isna(mlbam_id):
+        player_ids = playerid_lookup(last_name, first_name)
+        mlbam_id = int(player_ids.iloc[0]['key_mlbam'])
+    else:
+        mlbam_id = int(mlbam_id)
 
     start_date = regular_season_start
     end_date = f'{season}-10-01'
@@ -99,8 +102,10 @@ def project_pitcher_k(last_name, first_name, season, regular_season_start):
         latest['season_avg_k'] * 0.2
     )
 
+    pitcher_name = display_name if display_name is not None else f'{first_name.title()} {last_name.title()}'
+
     return {
-        'pitcher': f'{first_name.title()} {last_name.title()}',
+        'pitcher': pitcher_name,
         'mlbam_id': mlbam_id,
         'season': season,
         'regular_season_start': regular_season_start,
@@ -113,10 +118,10 @@ def project_pitcher_k(last_name, first_name, season, regular_season_start):
         'games': games
     }
 
-
 def compare_to_line(result, sportsbook_line):
     projected_k = round(result['projected_k'], 2)
-    difference = round(projected_k - sportsbook_line, 2)
+    adjusted_projected_k = round(result.get('adjusted_projected_k', projected_k), 2)
+    difference = round(adjusted_projected_k - sportsbook_line, 2)
 
     if difference >= 0.5:
         recommendation = 'Over'
@@ -138,6 +143,9 @@ def compare_to_line(result, sportsbook_line):
         'season_avg_k': round(result['season_avg_k'], 2),
         'season_avg_pitches': round(result['season_avg_pitches'], 2),
         'projected_k': projected_k,
+        'opponent_k_per_game': round(result.get('opponent_k_per_game', np.nan), 2),
+        'opponent_k_factor': round(result.get('opponent_k_factor', np.nan), 2),
+        'adjusted_projected_k': adjusted_projected_k,
         'sportsbook_line': sportsbook_line,
         'difference': difference,
         'recommendation': recommendation,
@@ -145,7 +153,6 @@ def compare_to_line(result, sportsbook_line):
     }])
 
     return summary
-
 
 def build_pitcher_board(pitchers, season, regular_season_start):
     all_summaries = []
@@ -158,8 +165,25 @@ def build_pitcher_board(pitchers, season, regular_season_start):
                 last_name,
                 first_name,
                 season,
-                regular_season_start
+                regular_season_start,
+                mlbam_id=pitcher.get('mlbam_id'),
+                display_name=pitcher['pitcher']
             )
+
+            league_avg_k_per_game = 8.5
+            opponent_k_per_game = pitcher.get('opponent_k_per_game', np.nan)
+
+            if pd.isna(opponent_k_per_game):
+                opponent_k_factor = 1.0
+            else:
+                opponent_k_factor = opponent_k_per_game / league_avg_k_per_game
+                opponent_k_factor = max(0.90, min(1.10, opponent_k_factor))
+
+            adjusted_projected_k = round(result['projected_k'] * opponent_k_factor, 2)
+
+            result['opponent_k_per_game'] = opponent_k_per_game
+            result['opponent_k_factor'] = round(opponent_k_factor, 2)
+            result['adjusted_projected_k'] = adjusted_projected_k
 
             summary = compare_to_line(result, pitcher['line'])
             summary['opponent'] = pitcher['opponent']
@@ -178,6 +202,9 @@ def build_pitcher_board(pitchers, season, regular_season_start):
                 'season_avg_k': np.nan,
                 'season_avg_pitches': np.nan,
                 'projected_k': np.nan,
+                'opponent_k_per_game': np.nan,
+                'opponent_k_factor': np.nan,
+                'adjusted_projected_k': np.nan,
                 'sportsbook_line': pitcher['line'],
                 'difference': np.nan,
                 'recommendation': 'No Data',
@@ -214,13 +241,22 @@ def build_pitcher_board(pitchers, season, regular_season_start):
         'season_avg_k',
         'season_avg_pitches',
         'projected_k',
+        'opponent_k_per_game',
+        'opponent_k_factor',
+        'adjusted_projected_k',
         'sportsbook_line',
         'difference',
         'recommendation',
         'sample_size',
         'edge_strength',
         'final_action',
-        'status'
+        'status',
+        'error_message'
     ]
+
+    if 'error_message' not in board.columns:
+        board['error_message'] = ''
+    else:
+        board['error_message'] = board['error_message'].fillna('')
 
     return board[columns]
