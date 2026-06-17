@@ -5,8 +5,7 @@ Projection helper functions for the MLB pitcher strikeout model.
 import numpy as np
 import pandas as pd
 
-from pybaseball import playerid_lookup, statcast_pitcher
-
+from pybaseball import playerid_lookup, statcast_pitcher, statcast
 
 def split_pitcher_name(full_name):
     name_parts = full_name.strip().split()
@@ -154,8 +153,38 @@ def compare_to_line(result, sportsbook_line):
 
     return summary
 
-def build_pitcher_board(pitchers, season, regular_season_start):
+def get_team_k_per_game(regular_season_start, slate_date):
+    end_date = (pd.to_datetime(slate_date) - pd.Timedelta(days=1)).strftime('%Y-%m-%d')
+
+    data = statcast(regular_season_start, end_date)
+
+    data['batting_team'] = np.where(
+        data['inning_topbot'] == 'Top',
+        data['away_team'],
+        data['home_team']
+    )
+
+    team_games = data.groupby('batting_team')['game_pk'].nunique()
+    team_strikeouts = data[data['events'] == 'strikeout'].groupby('batting_team').size()
+
+    team_k_table = pd.DataFrame({
+        'games': team_games,
+        'strikeouts': team_strikeouts
+    }).fillna(0)
+
+    team_k_table['opponent_k_per_game'] = (
+        team_k_table['strikeouts'] / team_k_table['games']
+    )
+
+    return team_k_table.reset_index().rename(columns={'batting_team': 'opponent'})
+
+def build_pitcher_board(pitchers, season, regular_season_start, slate_date=None):
     all_summaries = []
+
+    if slate_date is not None:
+        opponent_k_table = get_team_k_per_game(regular_season_start, slate_date)
+    else:
+        opponent_k_table = pd.DataFrame(columns=['opponent', 'opponent_k_per_game'])
 
     for pitcher in pitchers:
         try:
@@ -170,12 +199,17 @@ def build_pitcher_board(pitchers, season, regular_season_start):
                 display_name=pitcher['pitcher']
             )
 
-            league_avg_k_per_game = 8.5
-            opponent_k_per_game = pitcher.get('opponent_k_per_game', np.nan)
+            league_avg_k_per_game = opponent_k_table['opponent_k_per_game'].mean()
 
-            if pd.isna(opponent_k_per_game):
+            opponent_match = opponent_k_table[
+                opponent_k_table['opponent'] == pitcher['opponent']
+]
+
+            if opponent_match.empty or pd.isna(league_avg_k_per_game):
+                opponent_k_per_game = np.nan
                 opponent_k_factor = 1.0
             else:
+                opponent_k_per_game = opponent_match.iloc[0]['opponent_k_per_game']
                 opponent_k_factor = opponent_k_per_game / league_avg_k_per_game
                 opponent_k_factor = max(0.90, min(1.10, opponent_k_factor))
 

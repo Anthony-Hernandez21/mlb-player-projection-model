@@ -20,7 +20,8 @@ daily_lines = pd.read_csv('data/daily_lines.csv').to_dict('records')
 daily_pitcher_board = build_pitcher_board(
     daily_lines,
     season,
-    regular_season_start
+    regular_season_start,
+    slate_date
 )
 
 daily_pitcher_board['slate_date'] = slate_date
@@ -61,6 +62,7 @@ display_columns = [
     'last_3_avg_k',
     'last_5_avg_k',
     'projected_k',
+    'opponent_k_per_game',
     'adjusted_projected_k',
     'difference',
     'final_action',

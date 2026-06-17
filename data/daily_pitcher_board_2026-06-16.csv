@@ -1,4 +1,4 @@
 slate_date,pitcher,opponent,home_away,sportsbook_line,projected_k,opponent_k_per_game,opponent_k_factor,adjusted_projected_k,difference,final_action,status,recommendation,edge_strength,sample_size,games_used,last_3_avg_k,last_5_avg_k,season_avg_k,season_avg_pitches
-2026-06-16,Dylan Cease,BOS,Away,6.5,8.66,9.4,1.1,9.53,3.03,Bet Over,Playable,Over,Strong Edge,Good Sample,13,8.67,8.8,8.38,98.54
-2026-06-16,Michael King,STL,Away,4.5,3.15,7.9,0.93,2.92,-1.58,Bet Under,Playable,Under,Strong Edge,Good Sample,15,2.67,2.8,4.8,92.07
-2026-06-16,Jesus Luzardo,MIA,Home,6.5,6.31,8.7,1.02,6.46,-0.04,Pass,Pass - Small Edge,No Bet,No Bet,Good Sample,15,6.33,6.2,6.47,96.33
+2026-06-16,Dylan Cease,BOS,Away,6.5,8.66,8.25,0.99,8.59,2.09,Bet Over,Playable,Over,Strong Edge,Good Sample,13,8.67,8.8,8.38,98.54
+2026-06-16,Michael King,STL,Away,4.5,3.15,8.04,0.97,3.04,-1.46,Bet Under,Playable,Under,Medium Edge,Good Sample,15,2.67,2.8,4.8,92.07
+2026-06-16,Jesus Luzardo,MIA,Home,6.5,6.31,8.25,0.99,6.25,-0.25,Pass,Pass - Small Edge,No Bet,No Bet,Good Sample,15,6.33,6.2,6.47,96.33
