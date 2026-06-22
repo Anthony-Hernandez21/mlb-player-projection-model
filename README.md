@@ -110,7 +110,7 @@ slate_date,season
 Update the daily lines file:
 
 ```csv
-pitcher,opponent,home_away,line
+pitcher,mlbam_id,opponent,home_away,line
 Dylan Cease,BOS,Away,6.5
 Jesús Luzardo,MIA,Home,6.5
 ```
